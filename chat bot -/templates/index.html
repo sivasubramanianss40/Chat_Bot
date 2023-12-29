@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ATOM</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+
+    <style>
+        .input{
+            border-radius: 10px;
+            border: none;
+            padding: 10px 40px;
+            padding-left: 10px;
+            margin-bottom: 10px;
+            margin-left: 10px;
+            color: white;
+
+        }
+        /* Input box styles */
+.input {
+    
+    border: 2px solid #F3EEEA; /* Border color */   
+    box-sizing: border-box;
+    background-color: transparent;
+}
+
+/* Input box focus effect */
+.input:focus {
+    outline: none;
+    border-color: #3498db; /* Border color on focus */
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.7); /* Box shadow on focus */
+}
+
+
+
+        .op{
+            box-shadow: 2px 2px 20px 1px black;
+            height: 50%;
+            width: 40%;
+            padding: 10px 20px;
+            background-color:#F3EEEA;
+            border-radius: 15px;
+            
+        }
+        .op_u{
+            border-bottom-left-radius:  20px;
+            border-top-right-radius: 20px;
+            border-top-left-radius: 20px;
+            max-width:30%;
+        }
+        .bot_r{
+            border-bottom-right-radius:  20px;
+            border-top-right-radius: 20px;
+            border-bottom-left-radius: 20px;
+            margin-left: -35%;
+            width: 60%;
+            text-wrap:wrap;
+        }
+       
+.button {
+    display: inline-block;
+    padding: 7.5px 10px;
+    font-size: 15px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    border: 2px solid #EBE3D5; /* Button border color */
+    border-radius: 10px;
+    color: #EBE3D5; /* Button text color */
+    background-color: transparent; /* Button background color */
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Button hover effect */
+.button:hover {
+    background-color: #3498db; /* Button background color on hover */
+    color: #fff; /* Button text color on hover */
+}
+
+.input::placeholder{
+    color: white;
+}
+
+        
+        
+
+
+
+
+    </style>
+
+    
+</head>
+<body style="height: 100%;  background-color:#866d4f;">
+
+
+    <center>
+    <h1 style="color: whitesmoke;">AI CHATBOT</h1>
+    <div class="op">
+        <div class="op_u" style="text-align: right; margin-right: -70%; padding-left: 10px; padding-right: 10px; font-size: 20px; background-color: #EBE3D5; width: fit-content;">
+    {% if user_input %}
+    <p style="padding: 5px;"> {{ user_input }}</p>
+    {% endif %}
+        </div>
+
+        <div class="bot_r" style=" font-size: 23px; padding-left: 10px; padding-right: 10px; padding-top: 2px; padding-bottom: 2px; background-color: #ddcbaf;">
+    {% if bot_response %}
+    <p> {{ bot_response }}</p>
+    {% endif %}
+        </div>
+    </div>
+    <form action="/chat" method="post">
+        <div id="User" style="position: relative; margin-top: 2%; display: flexbox;">
+        <input class="input" type="text" name="user_input" placeholder="Ask me to anythink" id="user_input" required>
+        <button class="button" type="submit">🔥</button>
+        </div>
+    </form>
+    <footer class="footer">
+        <p>&copy; 2023 Designed by (LinkedIn): Sivasubramanian M</p>
+        <p>This bot not give a 100% of accurate result</p>
+        
+    </footer>
+    
+    
+</center>
+</body>
+</html>
